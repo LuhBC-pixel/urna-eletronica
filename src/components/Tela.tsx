@@ -1,25 +1,14 @@
 import { Center } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-
-import dados from '../dados.json';
 
 interface TelaProps {
-  valor: Number[];
+  dados: {
+    id: number;
+    nome: string;
+    quantidadeVotos: number;
+  }[];
 }
 
-export function Tela({ valor }: TelaProps) {
-  const [eleitor, setEleitor] = useState(() => {
-    const storangeEleicao = localStorage.getItem('eleitor');
-
-    if (storangeEleicao) {
-      return JSON.parse(storangeEleicao);
-    }
-
-    return [];
-  });
-
-  
-
+export function Tela({ dados }: TelaProps) {
   return (
     <Center
       bg='white'
@@ -29,22 +18,12 @@ export function Tela({ valor }: TelaProps) {
       margin={10}
       padding={10}
     >
-      {dados.eleitores.map((eleitor) => (
-        <div key={eleitor.id}>
-          <h1 style={{ marginRight: '1rem' }}>{eleitor.nome}</h1>
-          <h1>{eleitor.id}</h1>
+      {dados.map((dado) => (
+        <div key={dado.id}>
+          <h1>{dado.nome}</h1>
+          <h2>{dado.id}</h2>
         </div>
       ))}
-
-      <span
-        style={{
-          display: 'flex',
-          justifyContent: 'end',
-          alignContent: 'start',
-        }}
-      >
-        Valor digitado: {valor}
-      </span>
     </Center>
   );
 }

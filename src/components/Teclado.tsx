@@ -4,12 +4,14 @@ interface TecladoProps {
   adicionarValor: (valor: number) => void;
   removerValor: () => void;
   enviarValor: (event: React.MouseEvent) => void;
+  anularValor: () => void;
 }
 
 export function Teclado({
   adicionarValor,
   removerValor,
   enviarValor,
+  anularValor,
 }: TecladoProps) {
   return (
     <div
@@ -102,7 +104,12 @@ export function Teclado({
         </SimpleGrid>
       </SimpleGrid>
       <SimpleGrid columns={3} spacing='5'>
-        <Button colorScheme='telegram' value='branco' disabled>
+        <Button
+          colorScheme='telegram'
+          value='branco'
+          disabled
+          onClick={() => anularValor()}
+        >
           BRANCO
         </Button>
         <Button

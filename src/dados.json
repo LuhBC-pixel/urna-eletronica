@@ -3,43 +3,52 @@
   "eleitores": [
     {
       "id": 1234,
-      "nome": "Eleitor A"
+      "nome": "Eleitor A",
+      "quantidadeVotos": 0
     },
     {
       "id": 5678,
-      "nome": "Eleitor B"
+      "nome": "Eleitor B",
+      "quantidadeVotos": 0
     },
     {
       "id": 9012,
-      "nome": "Eleitor C"
+      "nome": "Eleitor C",
+      "quantidadeVotos": 0
     }
   ],
   "lanches": [
     {
       "id": 11,
-      "nome": "Hamburguer"
+      "nome": "Hamburguer",
+      "quantidadeVotos": 0
     },
     {
       "id": 22,
-      "nome": "Pizza"
+      "nome": "Pizza",
+      "quantidadeVotos": 0
     },
     {
       "id": 33,
-      "nome": "Pastel"
+      "nome": "Pastel",
+      "quantidadeVotos": 0
     }
   ],
   "bebidas": [
     {
       "id": 444,
-      "nome": "Refrigerante"
+      "nome": "Refrigerante",
+      "quantidadeVotos": 0
     },
     {
       "id": 777,
-      "nome": "Suco"
+      "nome": "Suco",
+      "quantidadeVotos": 0
     },
     {
       "id": 999,
-      "nome": "Água"
+      "nome": "Água",
+      "quantidadeVotos": 0
     }
   ]
 }
