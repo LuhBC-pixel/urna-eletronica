@@ -1,46 +1,100 @@
-# Getting Started with Create React App
+PROJETO URNA ELETRÔNICA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O desafio consiste em criar uma aplicação web utilizando recai para simular uma votação, de maneira parecida com uma urna eletrônica. Os parâmetros são os seguintes:
 
-## Available Scripts
+Toda a configuração deverá ser feita por um arquivo JSON conforme abaixo:
 
-In the project directory, you can run:
+{
+  “codigoFinalizacao”: 0000,
+  “eleitores”: [
+    {
+       “Id”: 1234,
+       “Nome”: “Eleitor A”
+    },
+    {
+       “Id”: 5678,
+       “Nome”: “Eleitor B”
+    },
+    {
+       “Id”: 9012,
+       “Nome”: “Eleitor B”
+    }
+  ],
+  “lanches”: [
+    {
+       “Id”: 11,
+       “Nome”: “Hamburguer”
+    },
+    {
+       “Id”: 22,
+       “Nome”: “Pizza”
+    },
+    {
+       “Id”: 33,
+       “Nome”: “Pastel”
+    }
+  ],
+  “bebidas”: [
+    {
+       “Id”: 444,
+       “Nome”: “Refrigerante”
+    },
+    {
+       “Id”: 777,
+       “Nome”: “Suco”
+    },
+    {
+       “Id”: 999,
+       “Nome”: “Água”
+    }
+  ]
+}
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+OBS: O candidato pode adicionar mais dados ao JSON caso queira, como fotos (URL) ou mais informações sobre os ítens.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+A tela geral deve ser composta por um teclado numérico a direita, similar ao utilizado em uma urna eletrônica com as opções confirmar, branco ou corrigir, e à esquerda, uma tela que irá mudar de acordo com o momento da votação. (Apenas o lado esquerdo muda)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#TELA 1
+=======
+Quadrados em branco para identificação do eleitor. Após digitar no teclado numérico e clicar em confirma deverá seguir para a tela seguinte ou informar “Pessoa Não Identificada”.
+// tela de identificação do eleitor
 
-### `yarn build`
+#TELA 2
+=======
+No cabeçalho, os dados da pessoa que está votando
+No meio da tela, quadrados em branco para informar o numero do lanche.
+Após digitar o número, o lanche correspondente já deve ser exibido, sendo preciso confirmar.
+// tela do eleitor e seleção do lanche
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#TELA 3
+=======
+No cabeçalho, os dados da pessoa que está votando
+No meio da tela, quadrados em branco para informar a bebida.
+Após digitar o número, a bebida correspondente já deve ser exibida, sendo preciso confirmar.
+// tela do eleitor e seleção da bebida
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#TELA 4
+=======
+Apenas a palavra FIM
+Essa tela deve ser substituída pela tela 1 automaticamente após 3 segundos para uma nova votação.
+// tela FIM
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#TELA 5
+=======
+Acessível apenas ao ser digitado 0000 como pessoa
+Exibe um pequeno relatório de quantos votos cada lanche teve, incluindo brancos e nulos
+Exibe o número de pessoas que votaram
+// tela de relatório
 
-### `yarn eject`
+IMPORTANTE
+===========
+- O botão BRANCO não deve ser exibido na tela 1
+- A votação em branco ou nulo deve ser  possível nas telas 2 e 3
+- Uma pessoa não pode votar duas vezes (exibir erro: “PESSOA JÁ VOTOU”)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Não será cobrado responsividade para esse projeto,
+* Atenção para a componentização
+* Não deve ser usado banco de dados. Utilizar Local Storage para manter os dados.

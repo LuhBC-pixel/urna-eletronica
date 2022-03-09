@@ -4,17 +4,17 @@
     {
       "id": 1234,
       "nome": "Eleitor A",
-      "quantidadeVotos": 0
+      "alreadyVoted": false
     },
     {
       "id": 5678,
       "nome": "Eleitor B",
-      "quantidadeVotos": 0
+      "alreadyVoted": false
     },
     {
       "id": 9012,
       "nome": "Eleitor C",
-      "quantidadeVotos": 0
+      "alreadyVoted": false
     }
   ],
   "lanches": [

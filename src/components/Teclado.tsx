@@ -1,30 +1,30 @@
 import { Button, SimpleGrid } from '@chakra-ui/react';
 
 interface TecladoProps {
-  adicionarValor: (valor: number) => void;
-  removerValor: () => void;
-  enviarValor: (event: React.MouseEvent) => void;
-  anularValor: () => void;
+  addDigit: (digit: number) => void;
+  removeDigit: () => void;
+  submitValue: (event: React.MouseEvent) => void;
+  clearDigits: () => void;
+  currentStep: number;
+  setScreenStep: (step: number) => void
 }
 
 export function Teclado({
-  adicionarValor,
-  removerValor,
-  enviarValor,
-  anularValor,
+  addDigit,
+  removeDigit,
+  submitValue,
+  clearDigits,
+  currentStep,
+  setScreenStep
 }: TecladoProps) {
   return (
-    <div
-      style={{
-        marginLeft: '10rem',
-      }}
-    >
-      <SimpleGrid columns={3} spacing='1' width='275px'>
+    <div>
+      <SimpleGrid columns={3} spacing='1' width='300px'>
         <Button
           colorScheme='gray'
           value='1'
           width='50px'
-          onClick={() => adicionarValor(1)}
+          onClick={() => addDigit(1)}
         >
           1
         </Button>
@@ -32,7 +32,7 @@ export function Teclado({
           colorScheme='gray'
           value='2'
           width='50px'
-          onClick={() => adicionarValor(2)}
+          onClick={() => addDigit(2)}
         >
           2
         </Button>
@@ -40,7 +40,7 @@ export function Teclado({
           colorScheme='gray'
           value='3'
           width='50px'
-          onClick={() => adicionarValor(3)}
+          onClick={() => addDigit(3)}
         >
           3
         </Button>
@@ -48,7 +48,7 @@ export function Teclado({
           colorScheme='gray'
           value='4'
           width='50px'
-          onClick={() => adicionarValor(4)}
+          onClick={() => addDigit(4)}
         >
           4
         </Button>
@@ -56,7 +56,7 @@ export function Teclado({
           colorScheme='gray'
           value='5'
           width='50px'
-          onClick={() => adicionarValor(5)}
+          onClick={() => addDigit(5)}
         >
           5
         </Button>
@@ -64,7 +64,7 @@ export function Teclado({
           colorScheme='gray'
           value='6'
           width='50px'
-          onClick={() => adicionarValor(6)}
+          onClick={() => addDigit(6)}
         >
           6
         </Button>
@@ -72,7 +72,7 @@ export function Teclado({
           colorScheme='gray'
           value='7'
           width='50px'
-          onClick={() => adicionarValor(7)}
+          onClick={() => addDigit(7)}
         >
           7
         </Button>
@@ -80,7 +80,7 @@ export function Teclado({
           colorScheme='gray'
           value='8'
           width='50px'
-          onClick={() => adicionarValor(8)}
+          onClick={() => addDigit(8)}
         >
           8
         </Button>
@@ -88,7 +88,7 @@ export function Teclado({
           colorScheme='gray'
           value='9'
           width='50px'
-          onClick={() => adicionarValor(9)}
+          onClick={() => addDigit(9)}
         >
           9
         </Button>
@@ -97,33 +97,35 @@ export function Teclado({
             colorScheme='gray'
             width={100}
             value='0'
-            onClick={() => adicionarValor(0)}
+            onClick={() => addDigit(0)}
           >
             0
           </Button>
         </SimpleGrid>
       </SimpleGrid>
       <SimpleGrid columns={3} spacing='5'>
-        <Button
-          colorScheme='telegram'
-          value='branco'
-          disabled
-          onClick={() => anularValor()}
-        >
-          BRANCO
-        </Button>
+        {currentStep !== 1 && (
+          <Button
+            colorScheme='telegram'
+            value='branco'
+            onClick={() => setScreenStep(currentStep + 1)}
+          >
+            BRANCO
+          </Button>
+        )}
         <Button
           colorScheme='telegram'
           value='corrige'
-          onClick={() => removerValor()}
+          onClick={() => removeDigit()}
         >
           CORRIGE
         </Button>
         <Button
           colorScheme='telegram'
           value='confirma'
+          p='2'
           type='submit'
-          onClick={(e) => enviarValor(e)}
+          onClick={(e) => submitValue(e)}
         >
           CONFIRMA
         </Button>
