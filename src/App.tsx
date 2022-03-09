@@ -70,7 +70,7 @@ function App() {
         setData(updatedData);
         localStorage.setItem('data', JSON.stringify(updatedData));
     }
-  }, [screenStep, data, currentVoter]);
+  }, [screenStep]);
 
   useEffect(() => {
     if (screenStep === 2) {
@@ -94,7 +94,7 @@ function App() {
         setItemName('');
       }
     }
-  }, [digits, data, screenStep, maxLengthInput]);
+  }, [digits]);
 
   const addDigit = (numero: number) => {
     if (digits.length < maxLengthInput) {
