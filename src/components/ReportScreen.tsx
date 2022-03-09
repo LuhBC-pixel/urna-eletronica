@@ -1,4 +1,4 @@
-import { Flex, Text, Table, Thead, Tbody, Tr, Td, Th } from '@chakra-ui/react';
+import { Flex, Text, Table, Thead, Tbody, Tr, Td } from '@chakra-ui/react';
 import dados from '../dados.json';
 
 interface ReportScreenProps {
@@ -25,7 +25,7 @@ export function ReportScreen({ data }: ReportScreenProps) {
   return (
     <Flex
       bg='white'
-      h='100%' //oi oi
+      h='100%'
       width='100%'
       color='black'
       p='4'

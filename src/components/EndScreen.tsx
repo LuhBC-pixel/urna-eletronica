@@ -6,11 +6,9 @@ interface EndScreenProps {
 }
 
 export function EndScreen({ screenStep, setScreenStep }: EndScreenProps) {
-  if (screenStep === 4) {
-    setInterval(() => {
-      setScreenStep(1);
-    }, 3000);
-  }
+  setTimeout(() => {
+    setScreenStep(1);
+  }, 3000);
 
   return (
     <Flex
