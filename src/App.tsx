@@ -1,12 +1,12 @@
 import { Heading, Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import { Teclado } from './components/Teclado';
 import dados from './dados.json';
 
 import { IdentifyScreen } from './components/IdentifyScreen';
 import { VoterScreen } from './components/VoterScreen';
 import { EndScreen } from './components/EndScreen';
 import { ReportScreen } from './components/ReportScreen';
+import { Keyboard } from './components/Keyboard';
 
 function App() {
   const [currentVoter, setCurrentVoter] = useState<{
@@ -205,7 +205,7 @@ function App() {
         )}
         {screenStep === 4 && <EndScreen setScreenStep={setScreenStep} />}
         {screenStep === 5 && <ReportScreen data={data} />}
-        <Teclado
+        <Keyboard
           addDigit={addDigit}
           removeDigit={removeDigit}
           submitValue={submitValue}

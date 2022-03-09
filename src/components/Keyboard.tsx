@@ -1,6 +1,6 @@
 import { Button, SimpleGrid } from '@chakra-ui/react';
 
-interface TecladoProps {
+interface KeyboardProps {
   addDigit: (digit: number) => void;
   removeDigit: () => void;
   submitValue: (event: React.MouseEvent) => void;
@@ -9,14 +9,14 @@ interface TecladoProps {
   setScreenStep: (step: number) => void
 }
 
-export function Teclado({
+export function Keyboard({
   addDigit,
   removeDigit,
   submitValue,
   clearDigits,
   currentStep,
   setScreenStep
-}: TecladoProps) {
+}: KeyboardProps) {
   return (
     <div>
       <SimpleGrid columns={3} spacing='1' width='300px'>
