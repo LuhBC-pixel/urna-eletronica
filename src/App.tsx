@@ -44,6 +44,12 @@ function App() {
       case 3:
         setMaxLengthInput(3);
         break;
+      case 4 :
+          const updatedData = data;
+          const voterIndex = data.eleitores.indexOf(currentVoter as any);
+          updatedData.eleitores[voterIndex].alreadyVoted = true;
+          setData(updatedData)
+          localStorage.setItem('data', JSON.stringify(updatedData));
     }
   }, [screenStep]);
 
@@ -148,12 +154,7 @@ function App() {
       } else {
         clearDigits();
       }
-    } else if (screenStep === 4) {
-      const updatedData = data;
-      const voterIndex = data.eleitores.indexOf(currentVoter as any);
-      updatedData.eleitores[voterIndex].alreadyVoted = true;
-      localStorage.setItem('data', JSON.stringify(updatedData));
-    }
+    } 
   };
 
   const clearDigits = () => {

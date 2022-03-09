@@ -7,11 +7,8 @@ interface ReportScreenProps {
 }
 
 export function ReportScreen({ data }: ReportScreenProps) {
-  
   let usersVoted = 0;
   
-  useEffect(() => {
-  })
   data.eleitores.forEach((voter) => {
     if (voter.alreadyVoted) usersVoted++;
   });
@@ -24,12 +21,12 @@ export function ReportScreen({ data }: ReportScreenProps) {
     return acc + curr.quantidadeVotos;
   }, 0);
 
-  const whiteVotes = (drinksVoted - usersVoted) + (snacksVoted - usersVoted);
+  const whiteVotes = (usersVoted - drinksVoted) + (usersVoted - snacksVoted);
 
   return (
     <Flex
       bg='white'
-      h='100%'
+      h='100%' //oi oi
       width='100%'
       color='black'
       p='4'
@@ -56,7 +53,7 @@ export function ReportScreen({ data }: ReportScreenProps) {
             ))}
           </Tbody>
         </Table>
-        <Table>
+        <Table variant='striped' colorScheme='teal'>
           <Thead>
             <Tr>
               <Td>Bebidas</Td>
