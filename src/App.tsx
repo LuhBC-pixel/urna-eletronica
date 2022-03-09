@@ -8,6 +8,25 @@ import { EndScreen } from './components/EndScreen';
 import { ReportScreen } from './components/ReportScreen';
 import { Keyboard } from './components/Keyboard';
 
+interface Data {
+  codigoFinalizacao: string;
+  eleitores: {
+    id: number;
+    nome: string;
+    alreadyVoted: boolean;
+  }[];
+  lanches: {
+    id: number;
+    nome: string;
+    quantidadeVotos: number;
+  }[];
+  bebidas: {
+    id: number;
+    nome: string;
+    quantidadeVotos: number;
+  }[];
+}
+
 function App() {
   const [currentVoter, setCurrentVoter] = useState<{
     id: number;
@@ -22,8 +41,8 @@ function App() {
   >(undefined);
   const [digits, setDigits] = useState<number[]>([]);
   const [maxLengthInput, setMaxLengthInput] = useState<number>(4);
-  const [data, setData] = useState(dados);
-  const [itemName, setItemName] = useState<string|undefined>(undefined);
+  const [data, setData] = useState<Data>(dados);
+  const [itemName, setItemName] = useState<string | undefined>(undefined);
 
   // carregando dados persistidos no carregamento da pagina
   useEffect(() => {
@@ -44,12 +63,12 @@ function App() {
       case 3:
         setMaxLengthInput(3);
         break;
-      case 4 :
-          const updatedData = data;
-          const voterIndex = data.eleitores.indexOf(currentVoter as any);
-          updatedData.eleitores[voterIndex].alreadyVoted = true;
-          setData(updatedData)
-          localStorage.setItem('data', JSON.stringify(updatedData));
+      case 4:
+        const updatedData = data;
+        const voterIndex = data.eleitores.indexOf(currentVoter as any);
+        updatedData.eleitores[voterIndex].alreadyVoted = true;
+        setData(updatedData);
+        localStorage.setItem('data', JSON.stringify(updatedData));
     }
   }, [screenStep]);
 
@@ -59,9 +78,9 @@ function App() {
         const itemExists = data.lanches.find(
           (snack) => snack.id === Number(digits.join(''))
         );
-        if (itemExists) setItemName(itemExists.nome)
+        if (itemExists) setItemName(itemExists.nome);
       } else {
-        setItemName('')
+        setItemName('');
       }
     }
 
@@ -72,10 +91,9 @@ function App() {
         );
         if (itemDrinkExists) setItemName(itemDrinkExists.nome);
       } else {
-        setItemName('')
+        setItemName('');
       }
     }
-
   }, [digits]);
 
   const addDigit = (numero: number) => {
@@ -119,7 +137,6 @@ function App() {
           nome: '',
         });
         setIsInvalidVoter({ message: 'Pessoa Não Identificada' });
-        clearDigits();
       }
     } else if (screenStep === 2) {
       const snackId = digits.join('');
@@ -154,7 +171,7 @@ function App() {
       } else {
         clearDigits();
       }
-    } 
+    }
   };
 
   const clearDigits = () => {
@@ -203,13 +220,14 @@ function App() {
             itemName={itemName}
           />
         )}
-        {screenStep === 4 && <EndScreen setScreenStep={setScreenStep} />}
+        {screenStep === 4 && (
+          <EndScreen setScreenStep={setScreenStep} screenStep={screenStep} />
+        )}
         {screenStep === 5 && <ReportScreen data={data} />}
         <Keyboard
           addDigit={addDigit}
           removeDigit={removeDigit}
           submitValue={submitValue}
-          clearDigits={clearDigits}
           currentStep={screenStep}
           setScreenStep={setScreenStep}
         />

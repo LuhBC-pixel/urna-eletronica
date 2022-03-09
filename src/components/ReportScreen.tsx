@@ -7,7 +7,7 @@ interface ReportScreenProps {
 
 export function ReportScreen({ data }: ReportScreenProps) {
   let usersVoted = 0;
-  
+
   data.eleitores.forEach((voter) => {
     if (voter.alreadyVoted) usersVoted++;
   });
@@ -20,7 +20,7 @@ export function ReportScreen({ data }: ReportScreenProps) {
     return acc + curr.quantidadeVotos;
   }, 0);
 
-  const whiteVotes = (usersVoted - drinksVoted) + (usersVoted - snacksVoted);
+  const whiteVotes = usersVoted - drinksVoted + (usersVoted - snacksVoted);
 
   return (
     <Flex

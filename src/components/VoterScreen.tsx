@@ -7,9 +7,14 @@ interface VoterScreenProps {
     id: number;
     nome: string;
   };
-	itemName?: string
+  itemName?: string;
 }
-export function VoterScreen({ length, digits, voter, itemName }: VoterScreenProps) {
+export function VoterScreen({
+  length,
+  digits,
+  voter,
+  itemName,
+}: VoterScreenProps) {
   return (
     <Flex
       bg='white'
@@ -52,7 +57,7 @@ export function VoterScreen({ length, digits, voter, itemName }: VoterScreenProp
           />
         ))}
       </Flex>
-			<Text color='black'>{itemName ?? 'sem item selecionado'}</Text>
+      <Text color='black'>{itemName ?? 'sem item selecionado'}</Text>
     </Flex>
   );
 }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 interface IdentifyScreenProps {
   length: number;
   digits: number[];
-  isInvalid?: {message: string};
+  isInvalid?: { message: string };
 }
 
 export function IdentifyScreen({

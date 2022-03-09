@@ -4,18 +4,16 @@ interface KeyboardProps {
   addDigit: (digit: number) => void;
   removeDigit: () => void;
   submitValue: (event: React.MouseEvent) => void;
-  clearDigits: () => void;
   currentStep: number;
-  setScreenStep: (step: number) => void
+  setScreenStep: (step: number) => void;
 }
 
 export function Keyboard({
   addDigit,
   removeDigit,
   submitValue,
-  clearDigits,
   currentStep,
-  setScreenStep
+  setScreenStep,
 }: KeyboardProps) {
   return (
     <div>
@@ -104,7 +102,7 @@ export function Keyboard({
         </SimpleGrid>
       </SimpleGrid>
       <SimpleGrid columns={3} spacing='5'>
-        {currentStep !== 1 && currentStep !== 4 && currentStep !== 5 && (
+        {currentStep !== 1 && (
           <Button
             colorScheme='telegram'
             value='branco'
