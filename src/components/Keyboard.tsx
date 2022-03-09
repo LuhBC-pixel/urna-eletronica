@@ -104,7 +104,7 @@ export function Keyboard({
         </SimpleGrid>
       </SimpleGrid>
       <SimpleGrid columns={3} spacing='5'>
-        {currentStep !== 1 && (
+        {currentStep !== 1 && currentStep !== 4 && currentStep !== 5 && (
           <Button
             colorScheme='telegram'
             value='branco'

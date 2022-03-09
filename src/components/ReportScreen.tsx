@@ -1,5 +1,4 @@
 import { Flex, Text, Table, Thead, Tbody, Tr, Td, Th } from '@chakra-ui/react';
-import { useEffect } from 'react';
 import dados from '../dados.json';
 
 interface ReportScreenProps {

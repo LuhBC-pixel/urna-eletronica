@@ -1,6 +1,6 @@
 PROJETO URNA ELETRÔNICA
 
-O desafio consiste em criar uma aplicação web utilizando recai para simular uma votação, de maneira parecida com uma urna eletrônica. Os parâmetros são os seguintes:
+O desafio consiste em criar uma aplicação web utilizando react para simular uma votação, de maneira parecida com uma urna eletrônica. Os parâmetros são os seguintes:
 
 Toda a configuração deverá ser feita por um arquivo JSON conforme abaixo:
 
